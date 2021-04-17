@@ -52,7 +52,7 @@ const MovieForm = () => {
                 setState(data);
             })
             .catch(err => alert(err))
-    }, [])
+    }, [id])
 
     const addMovie = () => {
       api.post("/movie/add", {

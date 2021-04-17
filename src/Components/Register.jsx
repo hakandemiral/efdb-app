@@ -78,7 +78,7 @@ const Register = () => {
                     history.push('/');
                 })
                 .catch((err) => {
-                    alert(err.response.data.errMsg);
+                    alert(JSON.stringify(err.response.data));
                 })
         } else {
             alert("Captcha gerekli!")
