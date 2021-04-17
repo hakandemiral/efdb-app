@@ -2,7 +2,7 @@ import Header from './Components/Header';
 import Movies from "./Components/Movies";
 
 //React
-import {createContext, useEffect, useState} from "react";
+import {createContext, useState} from "react";
 
 //React Router
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {Rating} from "@material-ui/lab";
-import moment from "moment";
 
 const useStyles = makeStyles({
     container: {
@@ -41,6 +40,8 @@ const MovieDetail = () => {
 
   return(
       <Grid className={classes.container} container md={8}>
+
+          {isLoading && <div>Loading...</div>}
 
           <Grid item md={3}>
               <img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt=""/>

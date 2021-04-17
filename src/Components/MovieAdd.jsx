@@ -1,13 +1,10 @@
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import api from "../api";
 import {makeStyles, Paper, TextField} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import auth from "../auth";
 import MovieAddList from "./MovieAddList";
-import MovieForm from "./MovieForm";
-import HourglassFullIcon from '@material-ui/icons/HourglassFull';
-import {Switch, Route} from "react-router-dom";
 import {HourglassFull} from "@material-ui/icons";
 
 const useStyle = makeStyles({
