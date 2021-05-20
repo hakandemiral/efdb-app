@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: process.env.apiBase|| "http://hakan.local:3001",
+    baseURL: "https://efdb.hakandemiral.com.tr",
 });
 
 export default api;
