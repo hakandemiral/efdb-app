@@ -8,13 +8,15 @@ const ShareButton = ({movie}) => {
 
         const shareData = {
             title: 'EFDB: EfeMovieDatabase',
-            text: `${movie.title} isimli filme göz atmalısın!`,
+            text: `EFDB'de ${movie.title} isimli filme göz atmalısın!`,
             url: `${origin}/film-detay/${movie._id}`,
         }
 
         try {
             await navigator.share(shareData);
-        } catch{
+        } catch(err){
+            alert(JSON.stringify(err));
+            alert(err);
             copy(shareData.url);
             alert('Panoya kopyalandı!');
         }

@@ -38,7 +38,7 @@ const MovieCard = ({ movie }) => {
                        component="img"
                        alt="Contemplative Reptile"
                        height="320"
-                       image={`http://image.tmdb.org/t/p/w185${movie.poster_path}`}
+                       image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
                        title={movie.title}
                    />
                    <CardContent >

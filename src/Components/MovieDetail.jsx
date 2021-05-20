@@ -46,7 +46,7 @@ const MovieDetail = () => {
           {isLoading && <div>Loading...</div>}
 
           <Grid item md={3}>
-              <img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt=""/>
+              <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt=""/>
           </Grid>
 
           <Grid item md={7}>
