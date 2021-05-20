@@ -7,8 +7,8 @@ const ShareButton = ({movie}) => {
         const origin = window.location.origin;
 
         const shareData = {
-            title: 'EFDB: Efe Aydal Movie Database',
-            text: `${movie.name} isimli filme göz atmalısın!`,
+            title: 'EFDB: EfeMovieDatabase',
+            text: `${movie.title} isimli filme göz atmalısın!`,
             url: `${origin}/film-detay/${movie._id}`,
         }
 
