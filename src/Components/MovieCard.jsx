@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Rating} from "@material-ui/lab";
-import ShareIcon from '@material-ui/icons/Share';
+import ShareButton from './ShareButton';
 import QueueIcon from '@material-ui/icons/Queue';
 import { Link } from 'react-router-dom';
 
@@ -31,8 +31,8 @@ const MovieCard = ({ movie }) => {
     const classes = useStyles();
 
     return (
+    <Card className={classes.root}>
        <Link className={classes.tdNone} to={`/film-detay/${movie._id}`}>
-           <Card className={classes.root}>
                <CardActionArea>
                    <CardMedia
                        component="img"
@@ -47,18 +47,15 @@ const MovieCard = ({ movie }) => {
                        <Typography variant="h6" component="h3">{movie.efdb_point} / 10</Typography>
                    </CardContent>
                </CardActionArea>
+               </Link>
                <CardActions className={classes.cardActions}>
-                   <Button size="small" color="primary">
-                       <ShareIcon className={classes.buttonIcon}/>
-                       Paylaş
-                   </Button>
+                   <ShareButton movie={movie}/>
                    <Button size="small" color="primary">
                        <QueueIcon className={classes.buttonIcon}/>
                        Listeme Ekle
                    </Button>
                </CardActions>
            </Card>
-       </Link>
     );
 };
 

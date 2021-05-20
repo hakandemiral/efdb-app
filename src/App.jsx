@@ -19,10 +19,11 @@ export const EfdbContext = createContext();
 
 const App = () => {
     const [isLogin, setIsLogin] = useState(auth.control());
+    const [isAdmin, setIsAdmin] = useState(auth.isAdmin());
 
   return(
          <Router>
-             <EfdbContext.Provider value={{isLogin, setIsLogin}}>
+             <EfdbContext.Provider value={{isLogin, setIsLogin, isAdmin, setIsAdmin}}>
                  <Header/>
                  <Switch>
                      <Route path='/' exact>

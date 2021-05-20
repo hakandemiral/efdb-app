@@ -88,16 +88,16 @@ const Register = () => {
     return(
         <Grid container md={4} xs={8} lg={3} className={classes.container}>
             <Grid item xs={12}>
-                <Paper component="form" className={classes.loginBox}>
-                    <TextField type="text" placeholder="Kullanıcı Adı" className={classes.inputElement} onChange={(e) => dispatch({type: "userName", payload: e.target.value})}/>
+                <Paper component="form" className={classes.loginBox} onSubmit={registerHandle}>
+                    <TextField minlength="5" maxlength="25" type="text" placeholder="Kullanıcı Adı" className={classes.inputElement} onChange={(e) => dispatch({type: "userName", payload: e.target.value})}/>
                     <TextField type="email" placeholder="E-Posta" className={classes.inputElement} onChange={(e) => dispatch({type: "email", payload: e.target.value})}/>
-                    <TextField type="password" placeholder="Parola" className={classes.inputElement} onChange={(e) => dispatch({type: "password", payload: e.target.value})}/>
+                    <TextField minlength="5" maxlength="255" type="password" placeholder="Parola" className={classes.inputElement} onChange={(e) => dispatch({type: "password", payload: e.target.value})}/>
                     <ReCAPTCHA
                         sitekey="6LdzaqEaAAAAAI6DdoUXxztWCufwClnxEsMYPIg0"
                         onChange={(key) => dispatch({type: "gCaptcha", payload: key })}
                         className={classes.captcha}
                     />
-                    <Button variant="contained" color="primary" onClick={registerHandle} type="submit">Kayıt Ol!</Button>
+                    <Button variant="contained" color="primary" type="submit">Kayıt Ol!</Button>
                 </Paper>
             </Grid>
         </Grid>

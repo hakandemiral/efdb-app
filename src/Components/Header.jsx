@@ -52,9 +52,16 @@ const Header = () => {
                     {
                         context.isLogin
                             ?
-                            <Button onClick={handleLogout} variant="contained" color="secondary">
-                                Çıkış
-                            </Button>
+                            <>
+                                <Button className={classes.button} onClick={handleLogout} variant="contained" color="secondary">
+                                    Çıkış
+                                </Button>
+                                {context.isAdmin 
+                                && 
+                                <Button className={classes.button} variant="contained" color="secondary">
+                                    <Link to="/film-ekle">Film Ekle</Link>
+                                </Button>}
+                            </>
                             :
                             <>
                                 <Link to="/giris">

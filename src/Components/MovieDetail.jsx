@@ -5,6 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {Rating} from "@material-ui/lab";
+import currencyFormatter from 'currency-formatter'
+import ShareButton from "./ShareButton";
 
 const useStyles = makeStyles({
     container: {
@@ -73,13 +75,25 @@ const MovieDetail = () => {
 
           <Grid item md={2}>
               <Typography variant="h5">Bütçe</Typography>
-              <Typography variant="h6">{movie.budget ? `$${movie.budget}` : "Veri yok"}</Typography>
+              <Typography variant="h6">{movie.budget ? currencyFormatter.format(movie.budget, { code: 'USD', precision: 0}) : "Veri yok"}</Typography>
+
               <Typography variant="h5">Hasılat</Typography>
-              <Typography variant="h6">{movie.revenue ? `$${movie.revenue}` : "Veri yok"}</Typography>
+              <Typography variant="h6">{movie.revenue ? currencyFormatter.format(movie.revenue, { code: 'USD', precision: 0}) : "Veri yok"}</Typography>
+
               <Typography variant="h5">Uzunluk</Typography>
-              <Typography variant="h6">{movie.runtime ? `${movie.runtime} Dakika` : "Veri yok"}</Typography>
+              <Typography variant="h6">{movie.runtime ? `${Math.floor(movie.runtime / 60)} Saat ${(movie.runtime % 60)} Dakika` : "Veri yok"}</Typography>
+
               <Typography variant="h5">Dil</Typography>
-              <Typography variant="h6">{movie.language ? <img width="25" src={`https://www.unknown.nu/flags/images/${movie.language}-100`} alt="Flag"/> : "Veri yok"}</Typography>
+              <Typography variant="h6">{movie.language ? <img width="25" src={`https://unpkg.com/language-icons/icons/${movie.language}.svg`} alt="Flag"/> : "Veri yok"}</Typography>
+
+              <Typography variant="h5">Ülke</Typography>
+              <Typography variant="p">{movie.production_countries ? movie.production_countries.map(c => `${c.name}`) : "Veri yok"}</Typography>
+
+              <Typography variant="h5">Yapımcılar</Typography>
+              <Typography variant="p">{movie.production_companies ? movie.production_companies.map(c => <div>{c.name}<br/></div>) : "Veri yok"}</Typography>
+
+              <ShareButton movie={movie}/>
+
           </Grid>
       </Grid>
   )

@@ -15,11 +15,17 @@ const Footer = () => {
     return(
         <footer className={classes.footer}>
             Efe Aydal Movie Database 2021 <br/>
+            Geliştirilmesine destek olmak için. <br />
             <a
-                href="https://github.com/hakandemiral"
+                href="https://github.com/hakandemiral/efdb-app"
                 target="_blank"
                 rel="noreferrer"
-            >Developed by Hakan</a>
+            >Front-end repo</a><br />
+            <a
+                href="https://github.com/hakandemiral/efdb-api"
+                target="_blank"
+                rel="noreferrer"
+            >Back-end repo</a>
         </footer>
     )
 };
