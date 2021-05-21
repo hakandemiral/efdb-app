@@ -56,6 +56,9 @@ const Header = () => {
                                 <Button className={classes.button} onClick={handleLogout} variant="contained" color="secondary">
                                     Çıkış
                                 </Button>
+                                <Button className={classes.button} variant="contained" color="secondary">
+                                    <Link to="/izleme-listem">İzleme Listem</Link>
+                                </Button>
                                 {context.isAdmin 
                                 && 
                                 <Button className={classes.button} variant="contained" color="secondary">

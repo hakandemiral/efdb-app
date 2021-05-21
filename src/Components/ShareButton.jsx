@@ -1,9 +1,11 @@
 import Button from '@material-ui/core/Button';
 import ShareIcon from '@material-ui/icons/Share';
 import copy from 'copy-to-clipboard';
+import { useState } from 'react';
 
 const ShareButton = ({movie}) => {
-    const shareMovie = async () => {
+    const [isCopied, setIsCopied] = useState(false);
+    const shareMovie = () => {
         const origin = window.location.origin;
 
         const shareData = {
@@ -13,19 +15,22 @@ const ShareButton = ({movie}) => {
         }
 
         try {
-            await navigator.share(shareData);
-        } catch(err){
-            alert(JSON.stringify(err));
-            alert(err);
-            copy(shareData.url);
-            alert('Panoya kopyalandı!');
+            navigator.share(shareData);
+        }catch(err){
+            copy(shareData.url, {
+                message: 'Tarayıcın paylaşımı ve panoya kopyalamayı desteklemiyor, buradan linki kopyalabilirsin.'
+            });
+            setIsCopied(true);
+            setTimeout(()=> {
+            setIsCopied(false);
+            }, 1500)
         }
     };
 
     return(
         <Button size="small" color="primary" onClick={shareMovie}>
             <ShareIcon/>
-            Paylaş
+            {isCopied ? <div style={{fontSize: 7.5}}>Kopyalandı</div> :"Paylaş"}
         </Button>
     )
 }

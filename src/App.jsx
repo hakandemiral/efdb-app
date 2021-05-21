@@ -14,6 +14,7 @@ import Login from "./Components/Login";
 import MovieAdd from "./Components/MovieAdd";
 import MovieForm from "./Components/MovieForm";
 import MovieDetail from "./Components/MovieDetail";
+import WatchList from "./Components/WatchList";
 
 export const EfdbContext = createContext();
 
@@ -44,7 +45,9 @@ const App = () => {
                      <Route path="/film-duzenle/:id" exact>
                          <MovieForm/>
                      </Route>
-
+                     <Route path="/izleme-listem" exact>
+                         <WatchList/>
+                     </Route>
                  </Switch>
                  <Footer/>
              </EfdbContext.Provider>

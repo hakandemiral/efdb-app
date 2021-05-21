@@ -87,7 +87,7 @@ const MovieDetail = () => {
               <Typography variant="h6">{movie.language ? <img width="25" src={`https://unpkg.com/language-icons/icons/${movie.language}.svg`} alt="Flag"/> : "Veri yok"}</Typography>
 
               <Typography variant="h5">Ülke</Typography>
-              <Typography variant="p">{movie.production_countries ? movie.production_countries.map(c => `${c.name}`) : "Veri yok"}</Typography>
+              <Typography variant="p">{movie.production_countries ? movie.production_countries.map(c => <div>{c.name}<br/></div>) : "Veri yok"}</Typography>
 
               <Typography variant="h5">Yapımcılar</Typography>
               <Typography variant="p">{movie.production_companies ? movie.production_companies.map(c => <div>{c.name}<br/></div>) : "Veri yok"}</Typography>

@@ -4,16 +4,15 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Rating} from "@material-ui/lab";
 import ShareButton from './ShareButton';
-import QueueIcon from '@material-ui/icons/Queue';
 import { Link } from 'react-router-dom';
+import AddMovieToWatchListButton from './AddMovieToListButton';
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 245,
+        width: 245,
     },
     buttonIcon: {
         marginRight: "5px",
@@ -27,7 +26,7 @@ const useStyles = makeStyles({
     }
 });
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, isListed }) => {
     const classes = useStyles();
 
     return (
@@ -50,10 +49,7 @@ const MovieCard = ({ movie }) => {
                </Link>
                <CardActions className={classes.cardActions}>
                    <ShareButton movie={movie}/>
-                   <Button size="small" color="primary">
-                       <QueueIcon className={classes.buttonIcon}/>
-                       Listeme Ekle
-                   </Button>
+                   <AddMovieToWatchListButton movie={movie} status={isListed}/>
                </CardActions>
            </Card>
     );
