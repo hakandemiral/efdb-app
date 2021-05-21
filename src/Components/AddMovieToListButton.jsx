@@ -16,7 +16,6 @@ const AddMovieToListWatchButton = ({ movie, status }) => {
         api.post('/user/addMovieToWatchList', {
             movieId: movie._id,
             movieTitle: movie.title
-
         })
         .then(() => {
             setIsListed(true);
