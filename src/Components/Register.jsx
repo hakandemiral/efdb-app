@@ -73,7 +73,7 @@ const Register = () => {
 
             api.post('/user/register', authData)
                 .then(({ data: { token, expire} }) => {
-                    auth.create(token, expire);
+                    auth.create(token, expire, 0);
                     context.setIsLogin(true);
                     history.push('/');
                 })

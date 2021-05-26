@@ -62,7 +62,7 @@ const Login = () => {
 
             api.post('/user/login', authData)
                 .then(({ data: { token, expire, isAdmin} }) => {
-                    auth.create(token, expire, isAdmin);
+                    auth.create(token, expire, (isAdmin ? 1 : 0));
                     isAdmin && context.setIsAdmin(true);
                     context.setIsLogin(true);
                     history.push('/');

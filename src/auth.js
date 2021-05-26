@@ -30,7 +30,7 @@ const auth = {
         return localStorage.getItem('auth-token');
     },
     isAdmin(){
-        const isAdmin = Boolean(localStorage.getItem('is-admin'));
+        const isAdmin = Boolean(Number(localStorage.getItem('is-admin')));
         console.log("admin check", isAdmin, localStorage.getItem('is-admin'))
 
         return isAdmin;
