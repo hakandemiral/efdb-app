@@ -3,6 +3,7 @@ import MovieCard from "./MovieCard";
 import { makeStyles } from '@material-ui/core/styles';
 import {useEffect, useState, useContext} from "react";
 import api from "../api";
+import auth from "../auth";
 import { EfdbContext } from "../App";
 
 const useStyles = makeStyles({
@@ -21,7 +22,11 @@ const MovieList = ({ search }) => {
     useEffect(() => {
         async function fetchDatas(){
             if(context.isLogin){
-                await api.get('/user/getUserWatchList')
+                await api.get('/user/getUserWatchList', {
+                    headers: {
+                        authToken: auth.getKey()
+                    }
+                })
                 .then(({ data }) => {
                     const id = data.map(m => m.movieId);
                     setWatchList(id);

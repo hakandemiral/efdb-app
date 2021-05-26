@@ -45,7 +45,7 @@ const Header = () => {
                     <Typography variant="h6" className={classes.title}>
                         <Typography variant="h6" className={classes.title}>
                             <Link to="/" className={classes.link}>
-                                <HomeIcon/> EFDB Alpha 0.1
+                                <HomeIcon/> EFDB
                             </Link>
                         </Typography>
                     </Typography>

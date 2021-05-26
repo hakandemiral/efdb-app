@@ -22,9 +22,9 @@ const auth = {
         console.log("auth create")
     },
     clean(){
-        localStorage.clear('token-expiration');
-        localStorage.clear('auth-token');
-        localStorage.clear('isAdmin')
+        localStorage.removeItem('token-expiration');
+        localStorage.removeItem('auth-token');
+        localStorage.removeItem('isAdmin')
     },
     getKey(){
         return localStorage.getItem('auth-token');

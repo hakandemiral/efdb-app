@@ -9,6 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import api from '../api';
+import auth from "../auth";
 import { Link } from '@material-ui/core';
 import { useHistory } from 'react-router';
 import TheatersIcon from '@material-ui/icons/Theaters';
@@ -28,7 +29,11 @@ const WatchList = () => {
   const history = useHistory();
 
   useEffect(() => {
-    api.get('/user/getUserWatchList')
+    api.get('/user/getUserWatchList', {
+      headers: {
+        authToken: auth.getKey()
+    }
+    })
     .then(({ data }) => {
         setWatchList(data);
     })
@@ -38,6 +43,10 @@ const WatchList = () => {
     api.post('/user/toggleIsWatchedFromWatchList', {
       status,
       movieId
+    }, {
+      headers: {
+        authToken: auth.getKey()
+    }
     })
     .then(() => {
       const newList = watchList.map(w => {
@@ -58,6 +67,10 @@ const WatchList = () => {
   const removeMovieFromWatchList = (movieId) => {
     api.post('/user/removeMovieFromWatchList', {
         movieId,
+    }, {
+      headers: {
+        authToken: auth.getKey()
+    }
     })
     .then(() => {
       const newList = watchList.filter(w => w.movieId !== movieId);
