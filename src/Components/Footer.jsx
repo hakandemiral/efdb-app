@@ -14,7 +14,7 @@ const Footer = () => {
     const classes = useStyles();
     return(
         <footer className={classes.footer}>
-            Efe Aydal Movie Database 2021 <br/>
+            Efe Film Database 2021 <br/>
             Geliştirilmesine destek olmak için. <br />
             <a
                 href="https://github.com/hakandemiral/efdb-app"
