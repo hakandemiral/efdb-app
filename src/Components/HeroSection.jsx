@@ -23,7 +23,7 @@ const HeroSection = ({search, handleSearch}) => {
         <div className={classes.heroContent}>
             <Container maxWidth="sm">
                 <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                    Efe Movie Database
+                    Efe Film Database
                 </Typography>
                 <div className={classes.searchInput}>
                     <Grid container>
